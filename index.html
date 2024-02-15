@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Technical Document: Flexbox</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header id="topic-header">Flexbox  Documentation</header>
+        <div class="nav-link-container">
+            <a href="#Introduction" class="nav-link">Introduction</a>
+            <a href="#Basics_of_Flexbox" class="nav-link">Basics of Flexbox</a>
+            <a href="#Establishing_a_Flex_Container" class="nav-link">Establishing a Flex Container</a>
+            <a href="#Direction_and_Wrapping" class="nav-link">Direction and Wrapping</a>
+            <a href="#Alignment_and_Distribution" class="nav-link">Alignment and Distribution</a>
+            <a href="#Flex_Items_Properties" class="nav-link">Flex Items Properties</a>
+            <a href="#Individual_Alignment" class="nav-link">Individual Alignment</a>
+            <a href="#Practical_Use_Cases" class="nav-link">Practical Use Cases</a>
+            <a href="#Conclusion_and_Best_Practices" class="nav-link">Conclusion and Best Practices</a>
+            <a href="#References" class="nav-link">References</a>
+        </div>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header class="section-header">Introduction</header>
+            <p>CSS Flexbox, officially known as the CSS Flexible Box Layout Module, is designed to improve the way we lay out, align, and distribute space among items in a container, even when their size is unknown. It's direction-agnostic, enhancing layout options for web developers.</p>
+        </section>
+        <section class="main-section" id="Basics_of_Flexbox">
+            <header class="section-header">Basics of Flexbox</header>
+            <p>Flexbox focuses on one-dimensional layouts—either rows or columns. Key components include:</p>
+            <ul>
+                <li><span>Flex Container:</span> The parent element that holds flex items.</li>
+                <li><span>Flex Items:</span> The children of a flex container.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Establishing_a_Flex_Container">
+            <header class="section-header">Establishing a Flex Container</header>
+            <p>To create a flex container, apply <code>display: flex</code>; or <code>display: inline-flex</code>; to an element:</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.container</span> {<br>
+                        <div class="code-block"><span class="css-property">display</span>: flex;<br></div>
+                        }
+                </code>
+            </div>
+            <p>This declaration defines the element as a flex container and its children as flex items.</p>
+        </section>
+        <section class="main-section" id="Direction_and_Wrapping">
+            <header class="section-header">Direction and Wrapping</header>
+            <span class="sub-header">Flex Direction</span>
+            <p>The <code>flex-direction</code> CSS property sets how flex items are placed in the flex container defining the main axis and the direction (normal or reversed).</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.container</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">display</span>: flex; <br>
+                            <span class="css-property">flex-direction</span>: row; /* Default */ <br>
+                            /* Other values: column, row-reverse, column-reverse */
+                        </div>
+                        }
+                </code>
+            </div>
+            <span class="sub-header">Flex Wrap</span>
+            <p>The <code>flex-wrap</code> CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.container</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">display</span>: flex; <br>
+                            <span class="css-property">flex-wrap</span>: nowrap; /* Default */ <br>
+                            /* Other values: wrap, wrap-reverse */
+                        </div>
+                    }
+                </code>
+            </div>
+        </section>
+        <section class="main-section" id="Alignment_and_Distribution">
+            <header class="section-header">Alignment and Distribution</header>
+            <span class="sub-header">Justify Content</span>
+            <p>The <code>justify-content</code> property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.container</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">display</span>: flex; <br>
+                            <span class="css-property">justify-content</span>: flex-start; /* Default */ <br>
+                            /* Other values: flex-end, center, space-between, space-around, space-evenly */
+                        </div>
+                    }
+                </code>
+            </div>
+            <span class="sub-header">Align Items</span>
+            <p>The <code>align-items</code> property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.container</span> { <br>
+                    <div class="code-block">
+                        <span class="css-property">display</span>: flex; <br>
+                        <span class="css-property">align-items</span>: stretch; /* Default */ <br>
+                        /* Other values: flex-start, flex-end, center, baseline */
+                    </div>
+                    }
+                </code>
+            </div>
+            <span class="sub-header">Align Content</span>
+            <p>The <code>align-content</code> property sets the distribution of space between and around content items along a flexbox's cross-axis.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                        <span class="selector">.container</span> { <br>
+                            <div class="code-block">
+                                <span class="css-property">display</span>: flex; <br>
+                                <span class="css-property">flex-wrap</span>: wrap; <br>
+                                <span class="css-property">align-content</span>: stretch; /* Default */ <br>
+                                /* Other values: flex-start, flex-end, center, space-between, space-around */
+                            </div>
+                        }  
+                </code>
+            </div>
+        </section>
+        <section class="main-section" id="Flex_Items_Properties">
+            <header class="section-header">Flex Items Properties</header>
+            <span class="sub-header">Order</span>
+            <p>The <code>order</code> property sets the order to lay out an item in a flex or grid container. Items in a container are sorted by ascending order value and then by their source code order. Items not given an explicit order value are assigned the default value of 0.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.item</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">order</span>: 0; /* Default */ <br>
+                            /* Positive or negative integer values */ 
+                        </div>
+                    } 
+                </code>
+            </div>
+            <span class="sub-header">Flex Grow</span>
+            <p>The <code>flex-grow</code> property sets the flex grow factor, which specifies how much of the flex container's remaining space should be assigned to the flex item's main size.</p>
+            <p>When the flex-container's main size is larger than the combined main sizes of the flex items, the extra space is distributed among the flex items, with each item growth being their growth factor value as a proportion of the sum total of all the container's items' flex grow factors.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.item</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">flex-grow</span>: 0; /* Default */ <br>
+                            /* Any positive number */ 
+                        </div>
+                    }
+                </code>
+            </div>
+            <span class="sub-header">Flex Shrink</span>
+            <p>The <code>flex-shrink</code> property sets the flex shrink factor of a flex item. If the size of all flex items is larger than the flex container, items shrink to fit according to flex-shrink.</p>
+            <p>In use, <code>flex-shrink</code> is used alongside the other flex properties flex-grow and flex-basis, and normally defined using the flex shorthand.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.item</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">flex-shrink</span>: 1; /* Default */ <br>
+                            /* Any positive number */
+                        </div>
+                    }     
+                </code>
+            </div>
+            <span class="sub-header">Flex Basis</span>
+            <p>The <code>flex-basis</code> CSS property sets the initial main size of a flex item. It sets the size of the content box unless otherwise set with box-sizing.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.item</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">flex-basis</span>: auto; /* Default */ <br>
+                            /* Any length value or percentage */
+                        </div>
+                      }
+                </code>
+            </div>
+        </section>
+        <section class="main-section" id="Individual_Alignment">
+            <header class="section-header">Individual Alignment</header>
+            <span class="sub-header">Align Self</span>
+            <p>The <code>align-self</code> CSS property overrides a grid or flex item's <code>align-items</code> value. In Flexbox, it aligns the item on the cross axis.</p>
+            <div class="code-display-box">
+                <code class="code-example">
+                    <span class="selector">.item</span> { <br>
+                        <div class="code-block">
+                            <span class="css-property">align-self</span>: auto; /* Default */ <br>
+                            /* Other values: flex-start, flex-end, center, baseline, stretch */
+                        </div>
+                      }                  
+                </code>
+            </div>
+            <p>The property doesn't apply to block-level boxes, or to table cells. If a flexbox item's cross-axis <code>margin</code> is <code>auto</code>, then <code>align-self</code> is ignored.</p>
+        </section>
+        <section class="main-section" id="Practical_Use_Cases">
+            <header class="section-header">Practical Use Cases</header>
+            <p>CSS Flexbox is a powerful layout tool that provides a more efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic. Its flexibility makes it ideal for a variety of practical uses in web design and development. Here are some of the most common and impactful ways Flexbox can be used:</p>
+            <ol>
+                <li>Centering Content 
+                    <ul>
+                        <li>Flexbox simplifies the process of centering items both vertically and horizontally within a container, which has traditionally been a tricky task with CSS. This is particularly useful for UI elements like modals, cards, or vertically centered navigation links.</li>
+                    </ul>
+                </li>
+                <li>Creating Flexible Layouts
+                    <ul>
+                        <li>Flexbox allows for the creation of fluid layouts that adjust based on the container's size, making it perfect for responsive design. Items in a Flexbox layout can grow to fill unused space or shrink to fit into smaller spaces, ensuring content looks good on all screen sizes.</li>
+                    </ul>
+                </li>
+                <li>Building Navigation Bars
+                    <ul>
+                        <li>Flexbox is ideal for creating navigation bars and menus. It can evenly space navigation items, align items in the center or to the sides, and easily adjust for different screen sizes.</li>
+                    </ul>
+                </li>
+                <li>Aligning Sidebar Content
+                    <ul>
+                        <li>Whether you need a sidebar to accompany your main content or a multi-column layout, Flexbox can handle this with ease. It ensures that sidebars stay aligned with the content and allows for flexible spacing and sizing.</li>
+                    </ul>
+                </li>
+                <li>Managing Spacing Between Items
+                    <ul>
+                        <li>Flexbox provides properties like <code>justify-content</code> and <code>margin</code> (auto margins specifically) to manage spacing between items efficiently, allowing developers to distribute space dynamically based on the container size.</li>
+                    </ul>
+                </li>
+                <li>Creating Grids
+                    <ul>
+                        <li>While CSS Grid is specifically designed for two-dimensional layouts, Flexbox can also be used to create simple grid systems. Flexbox grids are useful for layouts where the vertical alignment of grid items is important.</li>
+                    </ul>
+                </li>
+                <li>Handling Form Controls and Buttons
+                    <ul>
+                        <li>Flexbox can align form controls and buttons both within a form and in relation to one another, creating a clean and visually consistent interface.</li>
+                    </ul>
+                </li>
+                <li>Reordering Content
+                    <ul>
+                        <li>Flexbox's <code>order</code> property allows for the visual reordering of content without changing the HTML structure. This is especially useful for responsive designs where the content order may need to change based on screen size.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section class="main-section" id="Conclusion_and_Best_Practices">
+            <header class="section-header">Conclusion and Best Practices</header>
+            <p>Flexbox is a powerful tool for modern web layouts, enabling responsive, adaptive designs with less effort. Practice and experimentation are key to mastering its capabilities.</p>
+            <p>Remember to test layouts across different browsers and devices, ensuring compatibility and performance. Flexbox is an essential part of the web developer's toolkit for creating sophisticated web interfaces.</p>
+        </section>
+        <section class="main-section" id="References">
+            <header class="section-header">References</header>
+            <p>Information used to create this site was obtained from <a href="https://developer.mozilla.org/en-US/" target="_blank">MDN</a> and <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>.</p>
+        </section>
+    </main>
+</body>
+</html>
